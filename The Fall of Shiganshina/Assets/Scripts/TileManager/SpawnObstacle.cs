@@ -6,27 +6,16 @@ public class SpawnObstacle : MonoBehaviour
 {
     public float leftSide;
     public float rightSide;
-    private float _spawnZDistance = 10;
+    private float _spawnZDistance = 10f;
+    private float _offsetZ = 10f;
     private int amontOfObstacleOnGround = 3;
     public GameObject[] obstaclePrefabs;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SpawnObstacleAtGround(GameObject ground)
     {
-        float groundLength = ground.transform.position.z;
+        float groundLength = ground.transform.position.z + _offsetZ;
         float obstacleZPos = groundLength;
-        
+
         for (int i = 0; i < amontOfObstacleOnGround; i++)
         {
             int randomIndex = Random.Range(0, obstaclePrefabs.Length);
@@ -43,7 +32,19 @@ public class SpawnObstacle : MonoBehaviour
     }
     private int RandomObstaclePositions()
     {
-        int randomX = Random.Range(-3, 3);
-        return randomX;
+        float chance = Random.Range(-1f, 1f);
+
+        if (chance < 0f)
+        {
+            return -3;
+        }
+        else if (chance > 0f && chance < 0.5f)
+        {
+            return 0;
+        }
+        else
+        {
+            return 3;
+        }
     }
 }
