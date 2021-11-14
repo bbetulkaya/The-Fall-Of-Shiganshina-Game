@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 1800887798}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,6 +604,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 5
   sideSpeed: 5
+  jumpForce: 200
+  isGrounded: 1
+  _jumpInput: 0
 --- !u!136 &2111780718
 CapsuleCollider:
   m_ObjectHideFlags: 0

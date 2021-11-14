@@ -9,10 +9,16 @@ public class PlayerMovements : MonoBehaviour
     [Header("Player's Speed")]
     public float forwardSpeed = 5f;
     public float sideSpeed = 5f;
+    [Header("Player's Force")]
+    public float jumpForce = 20f;
+
+    public bool isGrounded = true; 
 
     private Vector3 _horizontalInput;
+    public bool _jumpInput;
     private bool _isInBoundary;
     private bool _isPlayerCanMove;
+
 
     void Start()
     {
@@ -22,6 +28,8 @@ public class PlayerMovements : MonoBehaviour
     void Update()
     {
         _horizontalInput = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        _jumpInput = Input.GetButton("Jump");
+
         _isInBoundary = IsPlayerInBoundary();
         _isPlayerCanMove = IsPlayerAllowedToMove();
     }
@@ -30,6 +38,11 @@ public class PlayerMovements : MonoBehaviour
     {
         Vector3 forwardMove = transform.forward * Time.fixedDeltaTime * forwardSpeed;
         Vector3 horizontalMove = _horizontalInput * sideSpeed * Time.fixedDeltaTime;
+
+        if (_jumpInput & isGrounded)
+        {
+            m_Rigidbody.AddForce(transform.up * jumpForce);
+        }
 
         if (_isInBoundary)
         {
@@ -80,6 +93,22 @@ public class PlayerMovements : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 }
