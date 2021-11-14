@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnGround : MonoBehaviour
 {
+    SpawnObstacle spawnObstacle;
     public GameObject[] tilePrefabs;
     public Transform playerTransform;
 
@@ -17,6 +18,8 @@ public class SpawnGround : MonoBehaviour
 
     void Start()
     {
+        spawnObstacle = GetComponent<SpawnObstacle>();
+
         _activeTiles = new List<GameObject>();
         for (int i = 0; i < amnTilesOnScreen; i++)
         {
@@ -44,16 +47,14 @@ public class SpawnGround : MonoBehaviour
     private void SpawnGroundTile(int prefabIndex = -1)
     {
         GameObject go;
-
-        if (prefabIndex == -1)
-            go = Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
-        else
-            go = Instantiate(tilePrefabs[prefabIndex]) as GameObject;
-
+        go = Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
         go.transform.SetParent(this.transform);
         go.transform.position = Vector3.forward * _spawnZ;
-        _activeTiles.Add(go);
 
+        if (prefabIndex == -1)
+            spawnObstacle.SpawnObstacleAtGround(go);
+
+        _activeTiles.Add(go);
         _spawnZ += _tileLength;
     }
 

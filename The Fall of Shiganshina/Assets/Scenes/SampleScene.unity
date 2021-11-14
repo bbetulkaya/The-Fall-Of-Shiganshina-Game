@@ -325,6 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526977949}
   - component: {fileID: 1526977950}
+  - component: {fileID: 1526977951}
   m_Layer: 0
   m_Name: Tile Manager
   m_TagString: Untagged
@@ -365,6 +366,24 @@ MonoBehaviour:
   - {fileID: 3403487151336878933, guid: 10aa7abd146cfa645ac243c70ae59ca5, type: 3}
   playerTransform: {fileID: 2111780716}
   amnTilesOnScreen: 5
+--- !u!114 &1526977951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526977948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34362328a2a998844925bde97b43a577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftSide: -3
+  rightSide: 3
+  obstaclePrefabs:
+  - {fileID: 8740790181914864536, guid: 908d2081bf44bef45b77ee8f9e76800e, type: 3}
+  - {fileID: 96810547203805050, guid: fb8f3aa6e85d647418f19d355f40e216, type: 3}
+  - {fileID: 5012448516529140830, guid: cb9eb3e99e9496f4d98c876b88834286, type: 3}
 --- !u!1 &1661400081
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa44be6287176247ba8d15ea3b35548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 5
+  forwardSpeed: 10
   sideSpeed: 5
   jumpForce: 150
 --- !u!136 &2111780718
