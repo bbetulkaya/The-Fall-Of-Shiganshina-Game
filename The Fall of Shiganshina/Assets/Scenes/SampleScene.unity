@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 1526977949}
   - component: {fileID: 1526977950}
   - component: {fileID: 1526977951}
+  - component: {fileID: 1526977952}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
@@ -384,6 +385,18 @@ MonoBehaviour:
   - {fileID: 8740790181914864536, guid: 908d2081bf44bef45b77ee8f9e76800e, type: 3}
   - {fileID: 96810547203805050, guid: fb8f3aa6e85d647418f19d355f40e216, type: 3}
   - {fileID: 5012448516529140830, guid: cb9eb3e99e9496f4d98c876b88834286, type: 3}
+--- !u!114 &1526977952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526977948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eba4fa5cecab44493cd13ede32153e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661400081
 GameObject:
   m_ObjectHideFlags: 0
