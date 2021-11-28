@@ -11,9 +11,9 @@ public class CameraMovements : MonoBehaviour
     void LateUpdate()
     {
         Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        // Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
 
         // Cam only follow z axis 
-        transform.position = new Vector3(transform.position.x, transform.position.y, smoothedPosition.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y, desiredPosition.z);
     }
 }
