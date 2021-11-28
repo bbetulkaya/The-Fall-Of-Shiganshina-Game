@@ -9,16 +9,25 @@ public class PlayerMovements : MonoBehaviour
     PlayerMovementLimits _playerMovementLimits;
 
     [Header("Player's Speed")]
-    public float forwardSpeed = 5f;
-    public float sideSpeed = 5f;
+    public float forwardSpeed;
+    public float sideSpeed;
     [Header("Player's Force")]
-    public float jumpForce = 20f;
+    public float jumpForce;
+
+    // Player's Speed
+    private float _forwardSpeed;
+    private float _sideSpeed;
+    private float _jumpForce;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerInputs = GetComponent<PlayerInputs>();
         _playerMovementLimits = GetComponent<PlayerMovementLimits>();
+
+        _forwardSpeed = forwardSpeed;
+        _sideSpeed = sideSpeed;
+        _jumpForce = jumpForce;
     }
     void FixedUpdate()
     {
@@ -27,12 +36,12 @@ public class PlayerMovements : MonoBehaviour
 
     private void PlayerMove()
     {
-        Vector3 forwardMove = transform.forward * Time.fixedDeltaTime * forwardSpeed;
-        Vector3 horizontalMove = _playerInputs.horizontalInput * sideSpeed * Time.fixedDeltaTime;
+        Vector3 forwardMove = transform.forward * Time.fixedDeltaTime * _forwardSpeed;
+        Vector3 horizontalMove = _playerInputs.horizontalInput * _sideSpeed * Time.fixedDeltaTime;
 
         if (_playerInputs.jumpInput & _playerMovementLimits.isGrounded())
         {
-            _rigidbody.AddForce(transform.up * jumpForce);
+            _rigidbody.AddForce(transform.up * _jumpForce);
         }
 
         // Check player is in the level boundaries
@@ -60,8 +69,8 @@ public class PlayerMovements : MonoBehaviour
     {
         if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Person"))
         {
-            forwardSpeed = 5;
-            sideSpeed = 5;
+            _forwardSpeed = forwardSpeed * 0.2f;
+            _sideSpeed = sideSpeed * 0.2f;
         }
     }
 
@@ -69,8 +78,16 @@ public class PlayerMovements : MonoBehaviour
     {
         if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Person"))
         {
-            forwardSpeed = 15;
-            sideSpeed = 10;
+            _forwardSpeed = forwardSpeed;
+            _sideSpeed = sideSpeed;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            Destroy(other);
         }
     }
 }

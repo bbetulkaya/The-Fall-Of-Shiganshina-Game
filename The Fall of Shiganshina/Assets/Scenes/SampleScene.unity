@@ -610,7 +610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 15
   sideSpeed: 10
-  jumpForce: 150
+  jumpForce: 300
 --- !u!136 &2111780718
 CapsuleCollider:
   m_ObjectHideFlags: 0
