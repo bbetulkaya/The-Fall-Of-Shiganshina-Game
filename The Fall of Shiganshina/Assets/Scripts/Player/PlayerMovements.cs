@@ -55,4 +55,22 @@ public class PlayerMovements : MonoBehaviour
             _rigidbody.MovePosition(transform.position + forwardMove);
         }
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Person"))
+        {
+            forwardSpeed = 5;
+            sideSpeed = 5;
+        }
+    }
+
+    void OnCollisionExit(Collision col)
+    {
+        if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Person"))
+        {
+            forwardSpeed = 15;
+            sideSpeed = 10;
+        }
+    }
 }

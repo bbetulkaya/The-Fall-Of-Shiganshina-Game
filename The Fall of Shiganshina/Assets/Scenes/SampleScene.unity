@@ -385,6 +385,7 @@ MonoBehaviour:
   - {fileID: 8740790181914864536, guid: 908d2081bf44bef45b77ee8f9e76800e, type: 3}
   - {fileID: 96810547203805050, guid: fb8f3aa6e85d647418f19d355f40e216, type: 3}
   - {fileID: 5012448516529140830, guid: cb9eb3e99e9496f4d98c876b88834286, type: 3}
+  - {fileID: 489303637248328776, guid: b4fe103841686d74484884e2cd4d7405, type: 3}
 --- !u!114 &1526977952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +410,7 @@ GameObject:
   - component: {fileID: 1661400085}
   - component: {fileID: 1661400084}
   - component: {fileID: 1661400083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +509,7 @@ GameObject:
   - component: {fileID: 2111780717}
   - component: {fileID: 2111780719}
   - component: {fileID: 2111780720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,14 +524,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111780712}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 70
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!23 &2111780714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -607,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa44be6287176247ba8d15ea3b35548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 10
+  forwardSpeed: 15
   sideSpeed: 10
   jumpForce: 150
 --- !u!136 &2111780718
